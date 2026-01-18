@@ -3,14 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Walkies With Amy | Dog Walking in Leeds</title>
-  <meta name="description" content="Walkies With Amy — friendly, reliable dog walking and pet visits in Leeds, UK. Get in touch for availability and pricing." />
+  <meta name="description" content="Walkies With Amy — friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK. Contact Amy for availability and pricing (available on request)." />
+
+  <!-- Canonical (helps Google understand the main URL) -->
+  <link rel="canonical" href="https://walkieswithamy.co.uk/" />
+
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Open Graph (social previews) -->
   <meta property="og:title" content="Walkies With Amy | Dog Walking in Leeds" />
-  <meta property="og:description" content="Friendly, reliable dog walking and pet visits in Leeds. Pricing available on request." />
-  <meta property="og:image" content="images/gallery-2.jpg" />
+  <meta property="og:description" content="Friendly, reliable dog walking, pet visits and dog sitting in Leeds. Pricing available on request." />
+  <meta property="og:image" content="https://walkieswithamy.co.uk/images/gallery-2.jpg" />
+  <meta property="og:url" content="https://walkieswithamy.co.uk/" />
   <meta property="og:type" content="website" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Walkies With Amy | Dog Walking in Leeds" />
+  <meta name="twitter:description" content="Friendly, reliable dog walking, pet visits and dog sitting in Leeds. Pricing available on request." />
+  <meta name="twitter:image" content="https://walkieswithamy.co.uk/images/gallery-2.jpg" />
+
+  <!-- Local Business structured data (helps local SEO / rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Walkies With Amy",
+    "url": "https://walkieswithamy.co.uk/",
+    "telephone": "+447764788233",
+    "email": "amyfirth97@gmail.com",
+    "areaServed": "Leeds, UK",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Leeds",
+      "addressCountry": "GB"
+    },
+    "description": "Dog walking, pet visits and dog sitting in Leeds, UK. Pricing available on request.",
+    "sameAs": [
+      "https://www.instagram.com/firthamylouise/"
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="header">
@@ -35,7 +70,8 @@
           <span class="kicker">Leeds, UK</span>
           <h1 class="h1">Dog walking &amp; pet visits with a friendly, reliable touch</h1>
           <p class="lead">
-            Walkies With Amy offers calm, safe walks and visits tailored to your dog’s needs along with Dog sitting services. With over 20 years of experience your dogs will be in kind, safe hands.
+            Walkies With Amy offers calm, safe walks and visits tailored to your dog’s needs along with dog sitting services.
+            With over 20 years of experience your dogs will be in kind, safe hands.
             Message to check availability — <strong>pricing available on request</strong>.
           </p>
 
@@ -73,7 +109,7 @@
         <div class="slideshow" aria-label="Photo gallery slideshow">
           <div class="slides" id="slides">
             <div class="slide active">
-              <img src="images/gallery-1.jpg" alt="Happy dog in a field of yellow flowers" />
+              <img src="images/gallery-1.jpg" alt="Happy dog in a field of yellow flowers" style="object-position: 50% 70%;" />
               <div class="slide-caption">Happy walkies in Leeds</div>
             </div>
 
@@ -84,7 +120,6 @@
 
             <div class="slide">
               <img src="images/gallery-3.jpg" alt="Dog relaxing on a bed" style="object-position: 50% 35%;" />
-
               <div class="slide-caption">Calm, caring visits</div>
             </div>
 
