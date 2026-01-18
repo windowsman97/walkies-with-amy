@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://walkieswithamy.co.uk/sitemap.xml
