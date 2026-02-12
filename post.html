@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Post | Walkies With Amy</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-badge">🐾</span>
+      <span>Walkies With Amy</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a class="btn primary" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="section">
+  <div class="container">
+    <div id="post"></div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container small">
+    © <span id="year"></span> Walkies With Amy •
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+async function loadPost() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("slug");
+
+  const res = await fetch(`/blog?slug=${slug}`);
+  const data = await res.json();
+
+  const { post, blocks } = data;
+
+  const container = document.getElementById("post");
+
+  const title = post.properties.Name.title[0]?.plain_text || "";
+  const date = post.properties.Date.date?.start || "";
+
+  let contentHTML = `
+    <h1 class="h1">${title}</h1>
+    <p class="note">${date}</p>
+    <div class="hr"></div>
+  `;
+
+  blocks.forEach(block => {
+    const type = block.type;
+
+    if (type === "paragraph") {
+      const text = block.paragraph.rich_text.map(t => t.plain_text).join("");
+      contentHTML += `<p>${text}</p>`;
+    }
+
+    if (type === "heading_1") {
+      const text = block.heading_1.rich_text.map(t => t.plain_text).join("");
+      contentHTML += `<h2>${text}</h2>`;
+    }
+
+    if (type === "heading_2") {
+      const text = block.heading_2.rich_text.map(t => t.plain_text).join("");
+      contentHTML += `<h3>${text}</h3>`;
+    }
