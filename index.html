@@ -69,12 +69,12 @@
     </div>
   </section>
 
-  <!-- SLIDESHOW + HOW IT WORKS -->
+  <!-- SLIDESHOW -->
   <section class="section">
     <div class="container split">
 
       <div class="slideshow">
-        <div class="slides" id="slides">
+        <div class="slides">
           <div class="slide active">
             <img src="images/gallery-1.jpg" alt="Happy dog in a field of yellow flowers" />
             <div class="slide-caption">Happy walkies in Leeds</div>
@@ -99,7 +99,6 @@
           <button class="slide-btn prev" type="button" id="prevBtn">‹</button>
           <button class="slide-btn next" type="button" id="nextBtn">›</button>
         </div>
-        <div class="dots" id="dots"></div>
       </div>
 
       <div class="card pad">
@@ -113,28 +112,7 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section">
-    <div class="container">
-      <h2>Services at a glance</h2>
-      <div class="grid3">
-        <div class="card service">
-          <h3>Dog walking</h3>
-          <p>Regular or occasional walks tailored to your dog.</p>
-        </div>
-        <div class="card service">
-          <h3>Puppy / pet visits</h3>
-          <p>Toilet breaks, feeding, play and comfort.</p>
-        </div>
-        <div class="card service">
-          <h3>Updates</h3>
-          <p>Photo updates so you know your pet is doing great.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG SECTION (NOW NEAR BOTTOM) -->
+  <!-- BLOG -->
   <section class="section">
     <div class="container">
       <h2>Latest from the Blog</h2>
@@ -157,30 +135,76 @@
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* Blog Loader */
+/* SLIDESHOW */
+(function () {
+  const slides = document.querySelectorAll(".slide");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let index = 0;
+  let timer;
+
+  function show(i) {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[i].classList.add("active");
+  }
+
+  function goTo(i) {
+    index = (i + slides.length) % slides.length;
+    show(index);
+    restart();
+  }
+
+  function next() {
+    goTo(index + 1);
+  }
+
+  function restart() {
+    clearInterval(timer);
+    timer = setInterval(next, 3500);
+  }
+
+  prevBtn?.addEventListener("click", () => goTo(index - 1));
+  nextBtn?.addEventListener("click", next);
+
+  show(index);
+  restart();
+})();
+
+/* BLOG LOADER */
 async function loadHomeBlog() {
-  const res = await fetch("/api");
-  const data = await res.json();
-  const container = document.getElementById("home-blog");
+  try {
+    const res = await fetch("/blog");
+    const data = await res.json();
+    const container = document.getElementById("home-blog");
 
-  const posts = data.results.slice(0, 3);
+    const posts = data.results.slice(0, 3);
 
-  posts.forEach(post => {
-    const title = post.properties.Name.title[0]?.plain_text || "";
-    const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
-    const slug = post.properties.Slug.rich_text[0]?.plain_text || "";
+    if (!posts.length) {
+      container.innerHTML = "<p>No blog posts yet.</p>";
+      return;
+    }
 
-    const card = document.createElement("div");
-    card.className = "card service";
+    posts.forEach(post => {
+      const title = post.properties.Name.title[0]?.plain_text || "";
+      const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
+      const slug = post.properties.Slug.rich_text[0]?.plain_text || "";
 
-    card.innerHTML = `
-      <h3>${title}</h3>
-      <p>${excerpt}</p>
-      <a href="post.html?slug=${slug}" class="btn primary">Read more</a>
-    `;
+      const card = document.createElement("div");
+      card.className = "card service";
 
-    container.appendChild(card);
-  });
+      card.innerHTML = `
+        <h3>${title}</h3>
+        <p>${excerpt}</p>
+        <a href="post.html?slug=${slug}" class="btn primary">Read more</a>
+      `;
+
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 loadHomeBlog();
