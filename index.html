@@ -9,23 +9,12 @@
 
   <link rel="canonical" href="https://walkieswithamy.co.uk/" />
   <link rel="stylesheet" href="styles.css" />
-
-  <meta property="og:title" content="Walkies With Amy | Dog Walking in Leeds" />
-  <meta property="og:description" content="Friendly, reliable dog walking, pet visits and dog sitting in Leeds. Pricing available on request." />
-  <meta property="og:image" content="https://walkieswithamy.co.uk/images/gallery-2.jpg" />
-  <meta property="og:url" content="https://walkieswithamy.co.uk/" />
-  <meta property="og:type" content="website" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Walkies With Amy | Dog Walking in Leeds" />
-  <meta name="twitter:description" content="Friendly, reliable dog walking, pet visits and dog sitting in Leeds. Pricing available on request." />
-  <meta name="twitter:image" content="https://walkieswithamy.co.uk/images/gallery-2.jpg" />
 </head>
 <body>
 
 <header class="header">
   <div class="container header-inner">
-    <a class="logo" href="index.html" aria-label="Home">
+    <a class="logo" href="index.html">
       <span class="logo-badge">🐾</span>
       <span>Walkies With Amy</span>
     </a>
@@ -80,7 +69,72 @@
     </div>
   </section>
 
-  <!-- BLOG SECTION -->
+  <!-- SLIDESHOW + HOW IT WORKS -->
+  <section class="section">
+    <div class="container split">
+
+      <div class="slideshow">
+        <div class="slides" id="slides">
+          <div class="slide active">
+            <img src="images/gallery-1.jpg" alt="Happy dog in a field of yellow flowers" />
+            <div class="slide-caption">Happy walkies in Leeds</div>
+          </div>
+          <div class="slide">
+            <img src="images/gallery-2.jpg" alt="Amy holding a dog outdoors" />
+            <div class="slide-caption">Walkies With Amy</div>
+          </div>
+          <div class="slide">
+            <img src="images/gallery-3.jpg" alt="Dog relaxing on a bed" />
+            <div class="slide-caption">Calm, caring visits</div>
+          </div>
+          <div class="slide">
+            <img src="images/gallery-4.jpg" alt="Small dog sitting outside in a garden" />
+            <div class="slide-caption">Friendly &amp; reliable</div>
+          </div>
+          <div class="slide">
+            <img src="images/gallery-5.jpg" alt="Two dogs relaxing on a sofa" />
+            <div class="slide-caption">Photo updates included</div>
+          </div>
+
+          <button class="slide-btn prev" type="button" id="prevBtn">‹</button>
+          <button class="slide-btn next" type="button" id="nextBtn">›</button>
+        </div>
+        <div class="dots" id="dots"></div>
+      </div>
+
+      <div class="card pad">
+        <h2>How it works</h2>
+        <p><strong>1)</strong> Contact Amy to discuss what you need</p>
+        <p><strong>2)</strong> Arrange a meet &amp; greet (recommended)</p>
+        <p><strong>3)</strong> Enjoy happy walks with updates</p>
+        <div class="hr"></div>
+        <p class="note"><strong>Pricing:</strong> available on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <h2>Services at a glance</h2>
+      <div class="grid3">
+        <div class="card service">
+          <h3>Dog walking</h3>
+          <p>Regular or occasional walks tailored to your dog.</p>
+        </div>
+        <div class="card service">
+          <h3>Puppy / pet visits</h3>
+          <p>Toilet breaks, feeding, play and comfort.</p>
+        </div>
+        <div class="card service">
+          <h3>Updates</h3>
+          <p>Photo updates so you know your pet is doing great.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG SECTION (NOW NEAR BOTTOM) -->
   <section class="section">
     <div class="container">
       <h2>Latest from the Blog</h2>
@@ -103,40 +157,30 @@
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Load latest 3 blog posts
+/* Blog Loader */
 async function loadHomeBlog() {
-  try {
-    const res = await fetch("/api");
-    const data = await res.json();
-    const container = document.getElementById("home-blog");
+  const res = await fetch("/api");
+  const data = await res.json();
+  const container = document.getElementById("home-blog");
 
-    const posts = data.results.slice(0, 3);
+  const posts = data.results.slice(0, 3);
 
-    if (!posts.length) {
-      container.innerHTML = "<p>No blog posts yet.</p>";
-      return;
-    }
+  posts.forEach(post => {
+    const title = post.properties.Name.title[0]?.plain_text || "";
+    const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
+    const slug = post.properties.Slug.rich_text[0]?.plain_text || "";
 
-    posts.forEach(post => {
-      const title = post.properties.Name.title[0]?.plain_text || "Untitled";
-      const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
-      const slug = post.properties.Slug.rich_text[0]?.plain_text || "";
+    const card = document.createElement("div");
+    card.className = "card service";
 
-      const card = document.createElement("div");
-      card.className = "card service";
+    card.innerHTML = `
+      <h3>${title}</h3>
+      <p>${excerpt}</p>
+      <a href="post.html?slug=${slug}" class="btn primary">Read more</a>
+    `;
 
-      card.innerHTML = `
-        <h3>${title}</h3>
-        <p>${excerpt}</p>
-        <a href="post.html?slug=${slug}" class="btn primary">Read more</a>
-      `;
-
-      container.appendChild(card);
-    });
-
-  } catch (err) {
-    console.error(err);
-  }
+    container.appendChild(card);
+  });
 }
 
 loadHomeBlog();
@@ -144,4 +188,3 @@ loadHomeBlog();
 
 </body>
 </html>
-
