@@ -106,7 +106,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Load latest 3 blog posts
 async function loadHomeBlog() {
   try {
-    const res = await fetch("/blog");
+    const res = await fetch("/api");
     const data = await res.json();
     const container = document.getElementById("home-blog");
 
@@ -144,3 +144,4 @@ loadHomeBlog();
 
 </body>
 </html>
+
