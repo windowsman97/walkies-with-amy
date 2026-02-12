@@ -43,7 +43,7 @@ async function loadPost() {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("slug");
 
-  const res = await fetch(`/blog?slug=${slug}`);
+  const res = await fetch(`/api?slug=${slug}`);
   const data = await res.json();
 
   const { post, blocks } = data;
