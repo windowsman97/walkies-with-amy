@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Post | Walkies With Amy</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
 
 <header class="header">
   <div class="container header-inner">
-    <a class="logo" href="index.html">
+    <a class="logo" href="/index.html">
       <span class="logo-badge">🐾</span>
       <span>Walkies With Amy</span>
     </a>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a class="btn primary" href="contact.html">Contact</a>
+      <a href="/index.html">Home</a>
+      <a href="/services.html">Services</a>
+      <a href="/about.html">About</a>
+      <a class="btn primary" href="/contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -28,10 +28,10 @@
   <section class="section">
     <div class="container">
 
-      <h1 id="post-title"></h1>
-      <p id="post-date" class="note"></p>
+      <h1 id="post-title" class="h1"></h1>
+      <p id="post-date" class="note" style="margin-bottom:30px;"></p>
 
-      <div id="post-content" style="margin-top:30px;"></div>
+      <div id="post-content"></div>
 
     </div>
   </section>
@@ -40,7 +40,7 @@
 <footer class="footer">
   <div class="container small">
     © <span id="year"></span> Walkies With Amy • Leeds, UK •
-    <a href="contact.html">Contact</a>
+    <a href="/contact.html">Contact</a>
   </div>
 </footer>
 
@@ -48,41 +48,91 @@
 document.getElementById("year").textContent = new Date().getFullYear();
 
 async function loadPost() {
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get("slug");
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get("slug");
+    if (!slug) return;
 
-  if (!slug) return;
+    const res = await fetch(`/api?slug=${slug}`);
+    const data = await res.json();
 
-  const res = await fetch(`/api?slug=${slug}`);
-  const data = await res.json();
-
-  if (!data.post) {
-    document.getElementById("post-title").textContent = "Post not found";
-    return;
-  }
-
-  const post = data.post;
-  const blocks = data.blocks;
-
-  document.getElementById("post-title").textContent =
-    post.properties.Name.title[0]?.plain_text || "";
-
-  document.getElementById("post-date").textContent =
-    post.properties.Date.date?.start || "";
-
-  const content = document.getElementById("post-content");
-
-  blocks.forEach(block => {
-    if (block.type === "paragraph") {
-      const text = block.paragraph.rich_text
-        .map(t => t.plain_text)
-        .join("");
-
-      const p = document.createElement("p");
-      p.textContent = text;
-      content.appendChild(p);
+    if (!data.post) {
+      document.getElementById("post-title").textContent = "Post not found";
+      return;
     }
-  });
+
+    const post = data.post;
+    const blocks = data.blocks || [];
+
+    // Title
+    document.getElementById("post-title").textContent =
+      post.properties.Name.title[0]?.plain_text || "";
+
+    // Date
+    document.getElementById("post-date").textContent =
+      post.properties.Date.date?.start || "";
+
+    const content = document.getElementById("post-content");
+
+    blocks.forEach(block => {
+
+      // Paragraphs
+      if (block.type === "paragraph") {
+        const text = block.paragraph.rich_text
+          .map(t => t.plain_text)
+          .join("");
+
+        if (text.trim()) {
+          const p = document.createElement("p");
+          p.textContent = text;
+          p.style.marginBottom = "16px";
+          content.appendChild(p);
+        }
+      }
+
+      // Images
+      if (block.type === "image") {
+        const imageUrl =
+          block.image.file?.url ||
+          block.image.external?.url;
+
+        if (imageUrl) {
+          const img = document.createElement("img");
+          img.src = imageUrl;
+          img.style.maxWidth = "100%";
+          img.style.borderRadius = "16px";
+          img.style.margin = "25px 0";
+          content.appendChild(img);
+        }
+      }
+
+      // Headings
+      if (block.type === "heading_1") {
+        const text = block.heading_1.rich_text
+          .map(t => t.plain_text)
+          .join("");
+
+        const h1 = document.createElement("h2");
+        h1.textContent = text;
+        h1.style.marginTop = "30px";
+        content.appendChild(h1);
+      }
+
+      if (block.type === "heading_2") {
+        const text = block.heading_2.rich_text
+          .map(t => t.plain_text)
+          .join("");
+
+        const h2 = document.createElement("h3");
+        h2.textContent = text;
+        h2.style.marginTop = "25px";
+        content.appendChild(h2);
+      }
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 loadPost();
