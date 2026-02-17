@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Post | Walkies With Amy</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="/">
+      <span class="logo-badge">🐾</span>
+      <span>Walkies With Amy</span>
+    </a>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/services.html">Services</a>
+      <a href="/about.html">About</a>
+      <a class="btn primary" href="/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <div id="post-content"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container small">
+    © <span id="year"></span> Walkies With Amy • Leeds, UK •
+    <a href="/contact.html">Contact</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+async function loadPost() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get("slug");
+
+  if (!slug) {
+    document.getElementById("post-content").innerHTML = "<p>No post found.</p>";
+    return;
+  }
+
+  const res = await fetch(`/api?slug=${slug}`);
+  const data = await res.json();
+
+  if (!data.results.length) {
+    document.getElementById("post-content").innerHTML = "<p>Post not found.</p>";
+    return;
+  }
+
+  const post = data.results[0];
+
+  const title = post.properties.Name.title[0]?.plain_text || "";
+  const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
+  const date = post.properties.Date.date?.start || "";
+
+  document.getElementById("post-content").innerHTML = `
+    <h1>${title}</h1>
+    <p><small>${date}</small></p>
+    <p>${excerpt}</p>
+  `;
+}
+
+loadPost();
+</script>
+
+</body>
+</html>
