@@ -5,103 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Blog | Walkies With Amy</title>
-  <meta name="description" content="Dog walking tips, advice and updates from Walkies With Amy in Leeds." />
-
-  <link rel="canonical" href="https://walkieswithamy.co.uk/blog.html" />
+  <meta name="description" content="Tips, advice and updates from Walkies With Amy in Leeds." />
 
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Walkies With Amy Blog" />
-  <meta property="og:description" content="Dog walking tips and updates from Walkies With Amy in Leeds." />
-  <meta property="og:image" content="https://walkieswithamy.co.uk/images/gallery-2.jpg" />
-  <meta property="og:url" content="https://walkieswithamy.co.uk/blog.html" />
-  <meta property="og:type" content="website" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Walkies With Amy Blog" />
-  <meta name="twitter:description" content="Dog walking tips and updates from Walkies With Amy in Leeds." />
-  <meta name="twitter:image" content="https://walkieswithamy.co.uk/images/gallery-2.jpg" />
 </head>
-
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="Home">
-        <span class="logo-badge">🐾</span>
-        <span>Walkies With Amy</span>
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a class="btn primary" href="contact.html">Contact</a>
-      </nav>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-badge">🐾</span>
+      <span>Walkies With Amy</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a class="btn primary" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <span class="kicker">Leeds, UK</span>
+      <h1 class="h1">Walkies With Amy Blog</h1>
+      <p class="lead">Tips, advice and updates about dog walking and pet care in Leeds.</p>
+
+      <div id="blog-list" class="grid3" style="margin-top:30px;"></div>
     </div>
-  </header>
+  </section>
+</main>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <span class="kicker">Leeds, UK</span>
-        <h1 class="h1">Walkies With Amy Blog</h1>
-        <p class="lead">
-          Tips, advice and updates about dog walking and pet care in Leeds.
-        </p>
-      </div>
-    </section>
+<footer class="footer">
+  <div class="container small">
+    © <span id="year"></span> Walkies With Amy • Leeds, UK •
+    <a href="contact.html">Contact</a>
+  </div>
+</footer>
 
-    <section class="section">
-      <div class="container">
-        <div id="posts"></div>
-      </div>
-    </section>
-  </main>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
 
-  <footer class="footer">
-    <div class="container small">
-      © <span id="year"></span> Walkies With Amy • Leeds, UK •
-      <a href="contact.html">Contact</a>
-    </div>
-  </footer>
+async function loadBlog() {
+  try {
+    const res = await fetch("/blog");
+    const data = await res.json();
+    const container = document.getElementById("blog-list");
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    async function loadPosts() {
-      const res = await fetch("/api");
-      const data = await res.json();
-      const container = document.getElementById("posts");
-
-      if (!data.results.length) {
-        container.innerHTML = "<p>No posts yet — check back soon!</p>";
-        return;
-      }
-
-      data.results.forEach(post => {
-        const title = post.properties.Name.title[0]?.plain_text || "Untitled";
-        const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
-        const slug = post.properties.Slug.rich_text[0]?.plain_text || "";
-        const date = post.properties.Date.date?.start || "";
-
-        const article = document.createElement("div");
-        article.className = "card pad";
-        article.style.marginBottom = "30px";
-
-        article.innerHTML = `
-          <h2>${title}</h2>
-          <p class="note" style="margin-bottom:10px;">${date}</p>
-          <p>${excerpt}</p>
-          <div style="margin-top:15px;">
-            <a class="btn primary" href="post.html?slug=${slug}">Read more</a>
-          </div>
-        `;
-
-        container.appendChild(article);
-      });
+    if (!data.results.length) {
+      container.innerHTML = "<p>No blog posts yet.</p>";
+      return;
     }
 
-    loadPosts();
-  </script>
+    data.results.forEach(post => {
+      const title = post.properties.Name.title[0]?.plain_text || "Untitled";
+      const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
+      const slug = post.properties.Slug.rich_text[0]?.plain_text || "";
+
+      const card = document.createElement("div");
+      card.className = "card service";
+
+      card.innerHTML = `
+        <h3>${title}</h3>
+        <p>${excerpt}</p>
+        <a href="post.html?slug=${slug}" class="btn primary">Read more</a>
+      `;
+
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+loadBlog();
+</script>
+
 </body>
 </html>
