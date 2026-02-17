@@ -50,7 +50,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 async function loadBlog() {
   try {
-    const res = await fetch("/blog");
+    const res = await fetch("/api");
     const data = await res.json();
     const container = document.getElementById("blog-list");
 
