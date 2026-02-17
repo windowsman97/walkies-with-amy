@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Blog Post | Walkies With Amy</title>
+  <title>Post | Walkies With Amy</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -27,7 +27,12 @@
 <main>
   <section class="section">
     <div class="container">
-      <div id="post-content"></div>
+
+      <h1 id="post-title"></h1>
+      <p id="post-date" class="note"></p>
+
+      <div id="post-content" style="margin-top:30px;"></div>
+
     </div>
   </section>
 </main>
@@ -48,39 +53,36 @@ async function loadPost() {
 
   if (!slug) return;
 
-  try {
-    const res = await fetch("/api?slug=" + slug);
-    const data = await res.json();
+  const res = await fetch(`/api?slug=${slug}`);
+  const data = await res.json();
 
-    if (!data.results.length) {
-      document.getElementById("post-content").innerHTML =
-        "<p>Post not found.</p>";
-      return;
-    }
-
-    const post = data.results[0];
-
-    const title =
-      post.properties.Name.title[0]?.plain_text || "Untitled";
-
-    const date =
-      post.properties.Date.date?.start || "";
-
-    const content =
-      post.properties.Excerpt.rich_text[0]?.plain_text || "";
-
-    document.getElementById("post-content").innerHTML = `
-      <h1>${title}</h1>
-      <p style="opacity:0.7;margin-bottom:20px;">${date}</p>
-      <p>${content}</p>
-      <div style="margin-top:30px;">
-        <a href="blog.html" class="btn">← Back to Blog</a>
-      </div>
-    `;
-
-  } catch (err) {
-    console.error(err);
+  if (!data.post) {
+    document.getElementById("post-title").textContent = "Post not found";
+    return;
   }
+
+  const post = data.post;
+  const blocks = data.blocks;
+
+  document.getElementById("post-title").textContent =
+    post.properties.Name.title[0]?.plain_text || "";
+
+  document.getElementById("post-date").textContent =
+    post.properties.Date.date?.start || "";
+
+  const content = document.getElementById("post-content");
+
+  blocks.forEach(block => {
+    if (block.type === "paragraph") {
+      const text = block.paragraph.rich_text
+        .map(t => t.plain_text)
+        .join("");
+
+      const p = document.createElement("p");
+      p.textContent = text;
+      content.appendChild(p);
+    }
+  });
 }
 
 loadPost();
