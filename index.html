@@ -8,6 +8,7 @@
   <meta name="description" content="Walkies With Amy — friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK. Contact Amy for availability and pricing (available on request)." />
 
   <link rel="canonical" href="https://walkieswithamy.co.uk/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -18,7 +19,10 @@
       <span class="logo-badge">🐾</span>
       <span>Walkies With Amy</span>
     </a>
-    <nav class="nav">
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="main-nav">
       <a class="active" href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
@@ -99,6 +103,13 @@
           <button class="slide-btn prev" type="button" id="prevBtn">‹</button>
           <button class="slide-btn next" type="button" id="nextBtn">›</button>
         </div>
+        <div class="dots" id="slideshowDots">
+          <button class="dot active" type="button" aria-label="Slide 1"></button>
+          <button class="dot" type="button" aria-label="Slide 2"></button>
+          <button class="dot" type="button" aria-label="Slide 3"></button>
+          <button class="dot" type="button" aria-label="Slide 4"></button>
+          <button class="dot" type="button" aria-label="Slide 5"></button>
+        </div>
       </div>
 
       <div class="card pad">
@@ -116,9 +127,10 @@
   <section class="section">
     <div class="container">
       <h2>Latest from the Blog</h2>
+      <div id="home-blog-spinner" class="loading-spinner"><div class="spinner"></div></div>
       <div id="home-blog" class="grid3"></div>
       <div style="margin-top:25px;">
-        <a class="btn" href="blog.html">View all posts</a>
+        <a class="btn" href="blog/">View all posts</a>
       </div>
     </div>
   </section>
@@ -135,9 +147,22 @@
 <script>
 document.getElementById("year").textContent = new Date().getFullYear();
 
+/* HAMBURGER NAV */
+(function () {
+  const toggle = document.querySelector(".nav-toggle");
+  const nav = document.querySelector(".nav");
+  toggle?.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", open);
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+})();
+
 /* SLIDESHOW */
 (function () {
   const slides = document.querySelectorAll(".slide");
+  const dots = document.querySelectorAll("#slideshowDots .dot");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
@@ -146,7 +171,9 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
   function show(i) {
     slides.forEach(s => s.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
     slides[i].classList.add("active");
+    if (dots[i]) dots[i].classList.add("active");
   }
 
   function goTo(i) {
@@ -155,9 +182,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
     restart();
   }
 
-  function next() {
-    goTo(index + 1);
-  }
+  function next() { goTo(index + 1); }
 
   function restart() {
     clearInterval(timer);
@@ -166,6 +191,12 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
   prevBtn?.addEventListener("click", () => goTo(index - 1));
   nextBtn?.addEventListener("click", next);
+  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft") goTo(index - 1);
+    if (e.key === "ArrowRight") goTo(index + 1);
+  });
 
   show(index);
   restart();
@@ -173,13 +204,14 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 /* BLOG LOADER */
 async function loadHomeBlog() {
+  const spinner = document.getElementById("home-blog-spinner");
+  const container = document.getElementById("home-blog");
   try {
     const res = await fetch("/api");
     const data = await res.json();
-    const container = document.getElementById("home-blog");
+    spinner.remove();
 
     const posts = data.results.slice(0, 3);
-
     if (!posts.length) {
       container.innerHTML = "<p>No blog posts yet.</p>";
       return;
@@ -193,16 +225,23 @@ async function loadHomeBlog() {
       const card = document.createElement("div");
       card.className = "card service";
 
-      card.innerHTML = `
-        <h3>${title}</h3>
-        <p>${excerpt}</p>
-        <a href="post.html?slug=${slug}" class="btn primary">Read more</a>
-      `;
+      const h3 = document.createElement("h3");
+      h3.textContent = title;
 
+      const p = document.createElement("p");
+      p.textContent = excerpt;
+
+      const a = document.createElement("a");
+      a.href = "post.html?slug=" + encodeURIComponent(slug);
+      a.className = "btn primary";
+      a.textContent = "Read more";
+
+      card.append(h3, p, a);
       container.appendChild(card);
     });
 
   } catch (err) {
+    spinner.remove();
     console.error(err);
   }
 }
