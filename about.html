@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Walkies With Amy</title>
   <meta name="description" content="About Walkies With Amy — dog walking and pet visits in Leeds." />
-  <link rel="canonical" href="https://walkieswithamy.co.uk/about.html" />
+  <link rel="canonical" href="https://walkieswithamy.co.uk/about" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Walkies With Amy" />
@@ -34,62 +34,3 @@
   </header>
 
   <main class="section">
-    <div class="container">
-      <span class="kicker">Leeds, UK</span>
-      <h1 class="h1" style="font-size:2.2rem;">About Amy</h1>
-      <p class="lead">
-        Hi! I’m Amy — I run <strong>Walkies With Amy</strong> in Leeds.
-        I aim to keep pets happy, safe, and well cared for with clear communication and photo updates.
-      </p>
-
-      <div class="split">
-        <div class="card pad">
-          <h2>What you can expect</h2>
-          <p>• Friendly, reliable service</p>
-          <p>• Walks suited to your dog’s needs</p>
-          <p>• Photo updates after visits/walks</p>
-          <p>• A meet & greet is recommended before starting</p>
-        </div>
-        <div class="card pad">
-          <h2>Service area</h2>
-          <p>Based in Leeds, covering Leeds.</p>
-          <p class="note"><strong>Pricing:</strong> available on request — message with your postcode and what you need.</p>
-          <div class="hr"></div>
-          <a class="btn primary" href="https://wa.me/447764788233" target="_blank" rel="noopener noreferrer">WhatsApp Amy</a>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="card pad">
-          <h2>Common questions</h2>
-          <p><strong>Do you do a meet & greet?</strong><br>Yes — recommended before your first booking.</p>
-          <p><strong>Will I get updates?</strong><br>Yes — photo updates so you can relax.</p>
-          <p><strong>Do you share prices online?</strong><br>No — <strong>pricing available on request</strong> so quotes can match your needs.</p>
-        </div>
-      </div>
-
-      <a class="btn primary" href="contact.html">Contact Amy</a>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container small">
-      © <span id="year"></span> Walkies With Amy • <a href="contact.html">Contact</a>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    (function () {
-      const toggle = document.querySelector(".nav-toggle");
-      const nav = document.querySelector(".nav");
-      toggle?.addEventListener("click", () => {
-        const open = nav.classList.toggle("open");
-        toggle.classList.toggle("open", open);
-        toggle.setAttribute("aria-expanded", open);
-        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-      });
-    })();
-  </script>
-</body>
-</html>
