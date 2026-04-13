@@ -1,2 +1,6 @@
 /blog.html /blog/ 301
 /post.html /post/ 301
+/about.html /about 301
+/services.html /services 301
+/contact.html /contact 301
+/index.html / 301
