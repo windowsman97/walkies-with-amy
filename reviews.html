@@ -43,8 +43,8 @@
   <section class="section">
     <div class="container">
       <span class="kicker">⭐ Customer reviews</span>
-      <div class="section-header" style="margin-top:.5rem;">
-        <h1 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:900;margin:0 0 .5rem;letter-spacing:-.02em;">What dog owners say</h1>
+      <div class="section-header mt-s">
+        <h1 class="page-h1">What dog owners say</h1>
         <p>Trusted by families across Leeds.</p>
       </div>
 
@@ -52,7 +52,7 @@
         <!-- Reviews will be added here -->
       </div>
 
-      <div class="card pad text-center" style="margin-top:2rem;">
+      <div class="card pad text-center mt-xl">
         <p style="font-size:1.05rem;margin:0 0 1rem;">Had a great experience with Amy? Leave a review and help other dog owners in Leeds find her.</p>
         <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
           <a class="btn primary" href="https://www.google.com/search?q=Walkies+With+Amy+Leeds" target="_blank" rel="noopener noreferrer">Leave a Google review</a>
@@ -93,19 +93,6 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-  (function(){
-    const t = document.querySelector(".nav-toggle");
-    const n = document.querySelector(".nav");
-    t?.addEventListener("click",()=>{
-      const o=n.classList.toggle("open");
-      t.classList.toggle("open",o);
-      t.setAttribute("aria-expanded",o);
-      t.setAttribute("aria-label",o?"Close menu":"Open menu");
-    });
-  })();
-</script>
-
+  <script src="scripts.js"></script>
 </body>
 </html>
