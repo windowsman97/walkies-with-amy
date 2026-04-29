@@ -3,120 +3,155 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services | Walkies With Amy</title>
-  <meta name="description" content="Dog walking and pet visit services in Leeds. Pricing available on request." />
-  <link rel="canonical" href="https://walkieswithamy.co.uk/services" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Services | Walkies With Amy</title>
+  <meta name="description" content="Dog walking, puppy visits, pet check-ins and dog sitting in Leeds. Pricing available on request." />
+  <link rel="canonical" href="https://walkieswithamy.co.uk/services" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Walkies With Amy" />
   <meta property="og:title" content="Services | Walkies With Amy" />
-  <meta property="og:description" content="Dog walking, puppy visits, pet check-ins and dog sitting in Leeds. Friendly, reliable and tailored to your pet. Pricing available on request." />
-  <meta property="og:url" content="https://walkieswithamy.co.uk/services.html" />
+  <meta property="og:description" content="Dog walking, puppy visits, pet check-ins and dog sitting in Leeds. Friendly, reliable and tailored to your pet." />
+  <meta property="og:url" content="https://walkieswithamy.co.uk/services" />
   <meta property="og:image" content="https://walkieswithamy.co.uk/images/gallery-1.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <a class="logo" href="/"><span class="logo-badge">🐾</span><span>Walkies With Amy</span></a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav" id="main-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a class="active" href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="https://www.instagram.com/firthamylouise/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a class="btn primary" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="section">
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="/">
+      <span class="logo-icon">🐾</span>
+      <span>Walkies With Amy</span>
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a class="active" href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="https://www.instagram.com/firthamylouise/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="btn primary" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="section">
     <div class="container">
-      <span class="kicker">Leeds, UK</span>
-      <h1 class="h1" style="font-size:2.2rem;">Services</h1>
-      <p class="lead">Flexible help for busy days — tailored to your pet’s routine. <strong>Pricing available on request.</strong></p>
+      <span class="kicker">📍 Leeds, UK</span>
+      <div class="section-header" style="margin-top:.5rem;">
+        <h2>Services</h2>
+        <p>Flexible, caring pet services tailored to your dog's routine. <strong>Pricing available on request.</strong></p>
+      </div>
 
-      <div class="grid3">
-        <div class="card service">
-          <h3>🐕 Dog walking</h3>
-          <p>Walks tailored to your dog’s pace, personality, and needs.</p>
+      <div class="grid2">
+        <div class="service-card">
+          <div class="service-icon">🐕</div>
+          <h3>Dog Walking</h3>
+          <p>Walks tailored to your dog's pace, personality and needs — rain or shine.</p>
           <p>• Solo or small group walks</p>
           <p>• Flexible days and times</p>
           <p>• Photo updates after every walk</p>
-          <p>• Leads, routes and duration suited to your dog</p>
-          <div class="hr"></div>
-          <p class="note"><strong>Pricing available on request.</strong></p>
-          <a class="btn primary" href="contact.html" style="margin-top:.6rem;">Enquire</a>
+          <p>• Leads, routes &amp; duration suited to your dog</p>
+          <span class="price-note">Pricing available on request</span>
+          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
-        <div class="card service">
-          <h3>🐾 Puppy visits</h3>
-          <p>Reassuring home visits keeping your pup happy while you’re out.</p>
+
+        <div class="service-card">
+          <div class="service-icon">🐾</div>
+          <h3>Puppy Visits</h3>
+          <p>Reassuring home visits keeping your pup happy while you're out.</p>
           <p>• Toilet breaks and clean-up</p>
           <p>• Playtime and stimulation</p>
           <p>• Feeding if needed</p>
           <p>• Photo update after each visit</p>
-          <div class="hr"></div>
-          <p class="note"><strong>Pricing available on request.</strong></p>
-          <a class="btn primary" href="contact.html" style="margin-top:.6rem;">Enquire</a>
+          <span class="price-note">Pricing available on request</span>
+          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
-        <div class="card service">
-          <h3>🏠 Pet check-ins</h3>
-          <p>Short, caring visits for pets that just need a little company.</p>
+
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Pet Check-ins</h3>
+          <p>Short, caring visits for pets that just need a little company and a welfare check.</p>
           <p>• Fresh water and food top-up</p>
           <p>• Fuss and comfort</p>
           <p>• Quick welfare check</p>
-          <p>• Peace of mind while you’re away</p>
-          <div class="hr"></div>
-          <p class="note"><strong>Pricing available on request.</strong></p>
-          <a class="btn primary" href="contact.html" style="margin-top:.6rem;">Enquire</a>
+          <p>• Peace of mind while you're away</p>
+          <span class="price-note">Pricing available on request</span>
+          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
-        <div class="card service">
-          <h3>🛏️ Dog sitting</h3>
-          <p>Home boarding or in-home sitting so your dog stays comfortable.</p>
+
+        <div class="service-card">
+          <div class="service-icon">🛏️</div>
+          <h3>Dog Sitting</h3>
+          <p>Home boarding or in-home sitting so your dog stays comfortable and happy.</p>
           <p>• Familiar home environment</p>
           <p>• Regular updates and photos</p>
           <p>• Ideal for holidays or long days away</p>
           <p>• Meet &amp; greet recommended first</p>
-          <div class="hr"></div>
-          <p class="note"><strong>Pricing available on request.</strong></p>
-          <a class="btn primary" href="contact.html" style="margin-top:.6rem;">Enquire</a>
+          <span class="price-note">Pricing available on request</span>
+          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
       </div>
 
-      <div class="section">
-        <div class="card pad">
-          <h2>What to send in your message</h2>
-          <p>To get a quick quote, include:</p>
-          <p>• Your postcode (Leeds area)</p>
-          <p>• Dog’s name, breed, age</p>
-          <p>• What you need (walks / visits) + days/times</p>
-          <div class="hr"></div>
+      <div class="card pad" style="margin-top:2rem;">
+        <h2>What to include in your message</h2>
+        <p>To get a quick quote, send Amy:</p>
+        <p>• Your postcode (Leeds area)</p>
+        <p>• Dog's name, breed and age</p>
+        <p>• What you need (walks / visits) and days/times</p>
+        <div class="hr"></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
           <a class="btn primary" href="contact.html">Enquire now</a>
-          <a class="btn" href="https://wa.me/447764788233" style="margin-left:.5rem;" target="_blank" rel="noopener noreferrer">WhatsApp Amy</a>
+          <a class="btn outline-green" href="https://wa.me/447764788233" target="_blank" rel="noopener noreferrer">WhatsApp Amy</a>
         </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="footer">
-    <div class="container small">
-      © <span id="year"></span> Walkies With Amy • <a href="contact.html">Contact</a>
+  <div class="cta-band">
+    <div class="container">
+      <h2>Not sure what you need?</h2>
+      <p>Just message Amy — she'll help figure out the best option for your dog.</p>
+      <div class="cta-band-btns">
+        <a class="btn white" href="contact.html">Get in touch</a>
+      </div>
     </div>
-  </footer>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">🐾</span>
+      <strong>Walkies With Amy</strong>
+    </div>
+    <p class="footer-tagline">Friendly, reliable dog walking &amp; pet care in Leeds.</p>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.instagram.com/firthamylouise/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> Walkies With Amy · Leeds, UK</p>
+  </div>
+</footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-    (function () {
-      const toggle = document.querySelector(".nav-toggle");
-      const nav = document.querySelector(".nav");
-      toggle?.addEventListener("click", () => {
-        const open = nav.classList.toggle("open");
-        toggle.classList.toggle("open", open);
-        toggle.setAttribute("aria-expanded", open);
-        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    (function(){
+      const t = document.querySelector(".nav-toggle");
+      const n = document.querySelector(".nav");
+      t?.addEventListener("click",()=>{
+        const o=n.classList.toggle("open");
+        t.classList.toggle("open",o);
+        t.setAttribute("aria-expanded",o);
+        t.setAttribute("aria-label",o?"Close menu":"Open menu");
       });
     })();
   </script>
