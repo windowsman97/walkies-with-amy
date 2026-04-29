@@ -5,21 +5,19 @@
   # Prevent MIME-type sniffing
   X-Content-Type-Options: nosniff
 
-  # Control referrer information sent to external sites
+  # Control referrer information
   Referrer-Policy: strict-origin-when-cross-origin
 
   # Restrict browser feature access
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
 
-  # Force HTTPS for 2 years, include subdomains, eligible for preload list
+  # Force HTTPS for 2 years — eligible for HSTS preload list
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
-  # Content Security Policy
-  # - default-src 'self': only load resources from same origin by default
-  # - script-src 'unsafe-inline': required for inline <script> blocks
-  # - style-src 'unsafe-inline': required for inline style= attributes
-  # - img-src data:: required for the data: URI favicon
-  # - form-action mailto:: required for mailto: links styled as buttons
-  # - frame-ancestors 'none': belt-and-suspenders with X-Frame-Options
-  # - upgrade-insecure-requests: auto-upgrade any http:// resource loads to https://
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests
+  # Content Security Policy — fully tightened:
+  # script-src 'self'         : NO unsafe-inline — all JS is in scripts.js
+  # style-src 'self'          : NO unsafe-inline — all styles in styles.css
+  # img-src 'self' data:      : data: needed for the SVG favicon
+  # frame-ancestors 'none'    : belt-and-suspenders clickjacking protection
+  # upgrade-insecure-requests : auto-upgrade any http:// resource to https://
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:; upgrade-insecure-requests
