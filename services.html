@@ -43,8 +43,8 @@
   <section class="section">
     <div class="container">
       <span class="kicker">📍 Leeds, UK</span>
-      <div class="section-header" style="margin-top:.5rem;">
-        <h1 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:900;margin:0 0 .5rem;letter-spacing:-.02em;">Services</h1>
+      <div class="section-header mt-s">
+        <h1 class="page-h1">Services</h1>
         <p>Flexible, caring pet services tailored to your dog's routine. <strong>Pricing available on request.</strong></p>
       </div>
 
@@ -58,7 +58,7 @@
           <p>• Photo updates after every walk</p>
           <p>• Leads, routes &amp; duration suited to your dog</p>
           <span class="price-note">Pricing available on request</span>
-          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
+          <div class="mt-m"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
 
         <div class="service-card">
@@ -70,7 +70,7 @@
           <p>• Feeding if needed</p>
           <p>• Photo update after each visit</p>
           <span class="price-note">Pricing available on request</span>
-          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
+          <div class="mt-m"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
 
         <div class="service-card">
@@ -82,7 +82,7 @@
           <p>• Quick welfare check</p>
           <p>• Peace of mind while you're away</p>
           <span class="price-note">Pricing available on request</span>
-          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
+          <div class="mt-m"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
 
         <div class="service-card">
@@ -94,11 +94,11 @@
           <p>• Ideal for holidays or long days away</p>
           <p>• Meet &amp; greet recommended first</p>
           <span class="price-note">Pricing available on request</span>
-          <div style="margin-top:1rem;"><a class="btn primary" href="contact.html">Enquire</a></div>
+          <div class="mt-m"><a class="btn primary" href="contact.html">Enquire</a></div>
         </div>
       </div>
 
-      <div class="card pad" style="margin-top:2rem;">
+      <div class="card pad mt-xl">
         <h2>What to include in your message</h2>
         <p>To get a quick quote, send Amy:</p>
         <p>• Your postcode (Leeds area)</p>
@@ -142,19 +142,6 @@
     <p class="footer-copy">© <span id="year"></span> Walkies With Amy · Leeds, UK</p>
   </div>
 </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    (function(){
-      const t = document.querySelector(".nav-toggle");
-      const n = document.querySelector(".nav");
-      t?.addEventListener("click",()=>{
-        const o=n.classList.toggle("open");
-        t.classList.toggle("open",o);
-        t.setAttribute("aria-expanded",o);
-        t.setAttribute("aria-label",o?"Close menu":"Open menu");
-      });
-    })();
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
