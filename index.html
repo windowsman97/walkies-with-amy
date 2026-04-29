@@ -83,7 +83,7 @@
         <span class="kicker">Leeds, UK</span>
         <h1 class="h1">Dog walking &amp; pet visits with a friendly, reliable touch</h1>
         <p class="lead">
-          Walkies With Amy offers calm, safe walks and visits tailored to your dog’s needs along with dog sitting services.
+          Walkies With Amy offers calm, safe walks and visits tailored to your dog's needs along with dog sitting services.
           With over 20 years of experience your dogs will be in kind, safe hands.
           Message to check availability — <strong>pricing available on request</strong>.
         </p>
@@ -166,18 +166,6 @@
     </div>
   </section>
 
-  <!-- BLOG -->
-  <section class="section">
-    <div class="container">
-      <h2>Latest from the Blog</h2>
-      <div id="home-blog-spinner" class="loading-spinner"><div class="spinner"></div></div>
-      <div id="home-blog" class="grid3"></div>
-      <div style="margin-top:25px;">
-        <a class="btn" href="blog/">View all posts</a>
-      </div>
-    </div>
-  </section>
-
 </main>
 
 <footer class="footer">
@@ -244,54 +232,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
   show(index);
   restart();
 })();
-
-/* BLOG LOADER */
-async function loadHomeBlog() {
-  const spinner = document.getElementById("home-blog-spinner");
-  const container = document.getElementById("home-blog");
-  try {
-    const res = await fetch("/api");
-    const data = await res.json();
-    spinner.remove();
-
-    const posts = data.results.slice(0, 3);
-    if (!posts.length) {
-      container.innerHTML = "<p>No blog posts yet.</p>";
-      return;
-    }
-
-    posts.forEach(post => {
-      const title = post.properties.Name.title[0]?.plain_text || "";
-      const excerpt = post.properties.Excerpt.rich_text[0]?.plain_text || "";
-      const slug = post.properties.Slug.rich_text[0]?.plain_text || "";
-
-      const card = document.createElement("div");
-      card.className = "card service";
-
-      const h3 = document.createElement("h3");
-      h3.textContent = title;
-
-      const p = document.createElement("p");
-      p.textContent = excerpt;
-
-      const a = document.createElement("a");
-      a.href = "post.html?slug=" + encodeURIComponent(slug);
-      a.className = "btn primary";
-      a.textContent = "Read more";
-
-      card.append(h3, p, a);
-      container.appendChild(card);
-    });
-
-  } catch (err) {
-    spinner.remove();
-    console.error(err);
-  }
-}
-
-loadHomeBlog();
 </script>
 
 </body>
 </html>
-
