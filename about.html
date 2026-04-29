@@ -43,7 +43,7 @@
   <section class="section">
     <div class="container">
       <span class="kicker">📍 Leeds, UK</span>
-      <div class="about-grid" style="margin-top:1.5rem;">
+      <div class="about-grid mt-l">
         <div>
           <div class="profile-img">
             <img src="images/amy-and-dog.png" alt="Amy with a dog" />
@@ -53,7 +53,7 @@
           <h1 style="font-size:clamp(2rem,4vw,2.8rem);font-weight:900;margin:0 0 .8rem;letter-spacing:-.02em;">About Amy</h1>
           <p class="lead">Hi! I'm Amy — I run <strong>Walkies With Amy</strong> in Leeds. I'm passionate about giving dogs the care, attention and exercise they deserve, and I pride myself on being friendly, reliable and always keeping owners in the loop.</p>
           <p style="color:var(--muted);">With over 20 years of experience caring for dogs, I understand that every dog is different. Whether your dog needs a calm, gentle walk or something more energetic, I'll tailor things to suit them perfectly.</p>
-          <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <div class="flex-ctas mt-l">
             <a class="btn primary" href="contact.html">Get in touch</a>
             <a class="btn outline-green" href="services.html">View services</a>
           </div>
@@ -129,19 +129,6 @@
     <p class="footer-copy">© <span id="year"></span> Walkies With Amy · Leeds, UK</p>
   </div>
 </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    (function(){
-      const t = document.querySelector(".nav-toggle");
-      const n = document.querySelector(".nav");
-      t?.addEventListener("click",()=>{
-        const o=n.classList.toggle("open");
-        t.classList.toggle("open",o);
-        t.setAttribute("aria-expanded",o);
-        t.setAttribute("aria-label",o?"Close menu":"Open menu");
-      });
-    })();
-  </script>
+  <script src="scripts.js"></script>
 </body>
 </html>
