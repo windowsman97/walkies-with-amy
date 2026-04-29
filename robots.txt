@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /cdn-cgi/
+Allow: /
 
 Sitemap: https://walkieswithamy.co.uk/sitemap.xml
