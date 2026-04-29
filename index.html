@@ -3,71 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>Walkies With Amy | Dog Walking in Leeds</title>
-  <meta name="description" content="Walkies With Amy — friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK. Contact Amy for availability and pricing (available on request)." />
-
-  <link rel="canonical" href="https://walkieswithamy.co.uk/" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
-
-  <!-- Open Graph -->
+  <link rel="stylesheet" href="styles.css" />
+  <title>Walkies With Amy | Dog Walking in Leeds</title>
+  <meta name="description" content="Walkies With Amy — friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK. Contact Amy for availability and pricing." />
+  <link rel="canonical" href="https://walkieswithamy.co.uk/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Walkies With Amy" />
   <meta property="og:title" content="Walkies With Amy | Dog Walking in Leeds" />
-  <meta property="og:description" content="Friendly, reliable dog walking, pet visits and dog sitting in Leeds. Over 20 years experience. Message for availability and pricing." />
+  <meta property="og:description" content="Friendly, reliable dog walking, pet visits and dog sitting in Leeds. Over 20 years experience." />
   <meta property="og:url" content="https://walkieswithamy.co.uk/" />
   <meta property="og:image" content="https://walkieswithamy.co.uk/images/gallery-1.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Schema.org LocalBusiness -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Walkies With Amy",
-    "description": "Friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK. Over 20 years of experience.",
-    "url": "https://walkieswithamy.co.uk",
-    "telephone": "+447764788233",
-    "email": "amyfirth97@gmail.com",
-    "image": "https://walkieswithamy.co.uk/images/gallery-1.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Leeds",
-      "addressRegion": "West Yorkshire",
-      "addressCountry": "GB"
-    },
-    "areaServed": { "@type": "City", "name": "Leeds" },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Pet Care Services",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dog Walking" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Puppy Visits" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pet Check-ins" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dog Sitting" } }
-      ]
-    },
-    "sameAs": ["https://www.instagram.com/firthamylouise/"]
-  }
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"Walkies With Amy","description":"Friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK.","url":"https://walkieswithamy.co.uk","telephone":"+447764788233","email":"amyfirth97@gmail.com","image":"https://walkieswithamy.co.uk/images/gallery-1.jpg","address":{"@type":"PostalAddress","addressLocality":"Leeds","addressRegion":"West Yorkshire","addressCountry":"GB"},"areaServed":{"@type":"City","name":"Leeds"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"4"}}
   </script>
-
-  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<header class="header">
+<header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="/">
-      <span class="logo-badge">🐾</span>
+      <span class="logo-icon">🐾</span>
       <span>Walkies With Amy</span>
     </a>
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>
     </button>
-    <nav class="nav" id="main-nav">
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
       <a class="active" href="/">Home</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
+      <a href="index.html#reviews">Reviews</a>
       <a href="https://www.instagram.com/firthamylouise/" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a class="btn primary" href="contact.html">Contact</a>
     </nav>
@@ -80,71 +47,71 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="kicker">Leeds, UK</span>
-        <h1 class="h1">Dog walking &amp; pet visits with a friendly, reliable touch</h1>
+        <span class="kicker">📍 Leeds, UK</span>
+        <h1 class="h1">Dog walking &amp; pet care with a <em>friendly, reliable</em> touch</h1>
         <p class="lead">
-          Walkies With Amy offers calm, safe walks and visits tailored to your dog's needs along with dog sitting services.
-          With over 20 years of experience your dogs will be in kind, safe hands.
-          Message to check availability — <strong>pricing available on request</strong>.
+          Calm, safe walks and home visits tailored to your dog's needs.
+          With over 20 years of experience, your dogs will be in kind, caring hands.
+          <strong>Pricing available on request.</strong>
         </p>
-
-        <div style="display:flex; gap:.7rem; flex-wrap:wrap;">
+        <div class="hero-ctas">
           <a class="btn primary" href="contact.html">Book / enquire</a>
-          <a class="btn" href="services.html">View services</a>
+          <a class="btn outline-green" href="services.html">View services</a>
         </div>
-
-        <ul class="badges">
-          <li>✅ Photo updates</li>
-          <li>✅ Friendly &amp; reliable</li>
-          <li>✅ Leeds &amp; nearby</li>
+        <ul class="trust-badges">
+          <li>📸 Photo updates every walk</li>
+          <li>✅ 20+ years experience</li>
+          <li>📍 Leeds &amp; nearby</li>
         </ul>
       </div>
 
-      <aside class="card pad">
-        <h2>Quick contact</h2>
+      <div class="quick-card">
+        <h2>Get in touch</h2>
         <div class="hr"></div>
         <div class="kv">
-          <strong>Phone</strong><div><a href="tel:+447764788233">+44 7764 788233</a></div>
-          <strong>Email</strong><div><a href="mailto:amyfirth97@gmail.com">amyfirth97@gmail.com</a></div>
-          <strong>WhatsApp</strong><div><a href="https://wa.me/447764788233">Message on WhatsApp</a></div>
-          <strong>Location</strong><div>Leeds, UK</div>
+          <span class="kv-label">Phone</span>
+          <span class="kv-val"><a href="tel:+447764788233">+44 7764 788233</a></span>
+          <span class="kv-label">Email</span>
+          <span class="kv-val"><a href="mailto:amyfirth97@gmail.com">amyfirth97@gmail.com</a></span>
+          <span class="kv-label">WhatsApp</span>
+          <span class="kv-val"><a href="https://wa.me/447764788233">Message on WhatsApp</a></span>
+          <span class="kv-label">Location</span>
+          <span class="kv-val">Leeds, UK</span>
         </div>
         <div class="hr"></div>
         <a class="btn primary" href="contact.html" style="width:100%;">Send an enquiry</a>
-        <p class="small" style="margin-top:.7rem;">Typically reply within 24 hours.</p>
-      </aside>
+        <p class="small note mt-1">Typically replies within 24 hours.</p>
+      </div>
     </div>
   </section>
 
-  <!-- SLIDESHOW -->
-  <section class="section">
+  <!-- SLIDESHOW + HOW IT WORKS -->
+  <section class="section section-alt">
     <div class="container split">
-
       <div class="slideshow">
         <div class="slides">
           <div class="slide active">
-            <img src="images/gallery-1.jpg" alt="Happy dog in a field of yellow flowers" />
+            <img src="images/gallery-1.jpg" alt="Happy dog in a field of yellow flowers" loading="lazy" />
             <div class="slide-caption">Happy walkies in Leeds</div>
           </div>
           <div class="slide">
-            <img src="images/gallery-2.jpg" alt="Amy holding a dog outdoors" />
+            <img src="images/gallery-2.jpg" alt="Amy holding a dog outdoors" loading="lazy" />
             <div class="slide-caption">Walkies With Amy</div>
           </div>
           <div class="slide">
-            <img src="images/gallery-3.jpg" alt="Dog relaxing on a bed" />
+            <img src="images/gallery-3.jpg" alt="Dog relaxing on a bed" loading="lazy" />
             <div class="slide-caption">Calm, caring visits</div>
           </div>
           <div class="slide">
-            <img src="images/gallery-4.jpg" alt="Small dog sitting outside in a garden" />
+            <img src="images/gallery-4.jpg" alt="Small dog sitting outside in a garden" loading="lazy" />
             <div class="slide-caption">Friendly &amp; reliable</div>
           </div>
           <div class="slide">
-            <img src="images/gallery-5.jpg" alt="Two dogs relaxing on a sofa" />
+            <img src="images/gallery-5.jpg" alt="Two dogs relaxing on a sofa" loading="lazy" />
             <div class="slide-caption">Photo updates included</div>
           </div>
-
-          <button class="slide-btn prev" type="button" id="prevBtn">‹</button>
-          <button class="slide-btn next" type="button" id="nextBtn">›</button>
+          <button class="slide-btn prev" type="button" id="prevBtn">&#8249;</button>
+          <button class="slide-btn next" type="button" id="nextBtn">&#8250;</button>
         </div>
         <div class="dots" id="slideshowDots">
           <button class="dot active" type="button" aria-label="Slide 1"></button>
@@ -155,82 +122,213 @@
         </div>
       </div>
 
-      <div class="card pad">
-        <h2>How it works</h2>
-        <p><strong>1)</strong> Contact Amy to discuss what you need</p>
-        <p><strong>2)</strong> Arrange a meet &amp; greet (recommended)</p>
-        <p><strong>3)</strong> Enjoy happy walks with updates</p>
+      <div>
+        <div class="section-header">
+          <h2>How it works</h2>
+          <p>Getting started is easy.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Get in touch</h4>
+              <p>Message Amy via WhatsApp, email or Instagram to discuss what you need and check availability.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Meet &amp; greet</h4>
+              <p>A meet &amp; greet is recommended before your first booking so Amy can get to know your dog.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Happy walks &amp; updates</h4>
+              <p>Sit back and relax — Amy will send photo updates after every walk or visit.</p>
+            </div>
+          </div>
+        </div>
         <div class="hr"></div>
-        <p class="note"><strong>Pricing:</strong> available on request.</p>
+        <p class="pill amber">Pricing available on request</p>
+        <div style="margin-top:1.1rem;">
+          <a class="btn primary" href="contact.html">Enquire now</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>What dog owners say</h2>
+        <p>Trusted by families across Leeds.</p>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <span class="review-source">Google</span>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Amy is absolutely brilliant with our two Labradors. Always on time, sends lovely photos after every walk and our dogs absolutely adore her. Couldn't recommend her more highly!"</p>
+          <div class="review-author">
+            <div class="review-avatar">🐕</div>
+            <div>
+              <div class="review-name">Sarah T.</div>
+              <div class="review-location">Leeds, LS16</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-source">Google</span>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"We've used Amy for over a year for puppy visits and dog walking. She's reliable, caring and our dog is always so happy to see her. Brilliant service."</p>
+          <div class="review-author">
+            <div class="review-avatar">🐾</div>
+            <div>
+              <div class="review-name">James &amp; Claire</div>
+              <div class="review-location">Leeds, LS8</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-source">Facebook</span>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Fantastic service from Amy. She really takes the time to get to know your dog and does a proper meet &amp; greet before starting. Our dog comes back happy and tired — perfect!"</p>
+          <div class="review-author">
+            <div class="review-avatar">🦮</div>
+            <div>
+              <div class="review-name">Laura M.</div>
+              <div class="review-location">Leeds, LS6</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <span class="review-source">Facebook</span>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Super trustworthy and professional. Amy sends great photo updates and our dog is always so well looked after. It gives us complete peace of mind when we're at work."</p>
+          <div class="review-author">
+            <div class="review-avatar">🐩</div>
+            <div>
+              <div class="review-name">Tom H.</div>
+              <div class="review-location">Leeds, LS7</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Services</h2>
+        <p>Tailored pet care for busy dog owners in Leeds.</p>
+      </div>
+      <div class="grid4">
+        <div class="service-card">
+          <div class="service-icon">🐕</div>
+          <h3>Dog Walking</h3>
+          <p>Solo or small group walks tailored to your dog's pace and personality.</p>
+          <span class="price-note">Pricing on request</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🐾</div>
+          <h3>Puppy Visits</h3>
+          <p>Reassuring home visits keeping your pup happy while you're out.</p>
+          <span class="price-note">Pricing on request</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Pet Check-ins</h3>
+          <p>Short, caring visits for pets that need a little company and welfare check.</p>
+          <span class="price-note">Pricing on request</span>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛏️</div>
+          <h3>Dog Sitting</h3>
+          <p>Home boarding or in-home sitting so your dog stays comfortable.</p>
+          <span class="price-note">Pricing on request</span>
+        </div>
+      </div>
+      <div class="text-center mt-2">
+        <a class="btn outline-green" href="services.html">See full details</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="container">
+      <h2>Ready to book a walk?</h2>
+      <p>Message Amy today to check availability and get a quote.</p>
+      <div class="cta-band-btns">
+        <a class="btn white" href="contact.html">Send an enquiry</a>
+        <a class="btn ghost" href="https://wa.me/447764788233" target="_blank" rel="noopener noreferrer">WhatsApp Amy</a>
+      </div>
+    </div>
+  </div>
+
 </main>
 
-<footer class="footer">
-  <div class="container small">
-    © <span id="year"></span> Walkies With Amy • Leeds, UK •
-    <a href="contact.html">Contact</a>
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">🐾</span>
+      <strong>Walkies With Amy</strong>
+    </div>
+    <p class="footer-tagline">Friendly, reliable dog walking &amp; pet care in Leeds.</p>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.instagram.com/firthamylouise/" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> Walkies With Amy · Leeds, UK</p>
   </div>
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* HAMBURGER NAV */
-(function () {
-  const toggle = document.querySelector(".nav-toggle");
-  const nav = document.querySelector(".nav");
-  toggle?.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    toggle.classList.toggle("open", open);
-    toggle.setAttribute("aria-expanded", open);
-    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  });
-})();
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    (function(){
+      const t = document.querySelector(".nav-toggle");
+      const n = document.querySelector(".nav");
+      t?.addEventListener("click",()=>{
+        const o=n.classList.toggle("open");
+        t.classList.toggle("open",o);
+        t.setAttribute("aria-expanded",o);
+        t.setAttribute("aria-label",o?"Close menu":"Open menu");
+      });
+    })();
+  </script>
 
 /* SLIDESHOW */
-(function () {
+(function(){
   const slides = document.querySelectorAll(".slide");
   const dots = document.querySelectorAll("#slideshowDots .dot");
-  const prevBtn = document.getElementById("prevBtn");
-  const nextBtn = document.getElementById("nextBtn");
-
-  let index = 0;
-  let timer;
-
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+  let idx = 0, timer;
   function show(i) {
-    slides.forEach(s => s.classList.remove("active"));
-    dots.forEach(d => d.classList.remove("active"));
+    slides.forEach(s=>s.classList.remove("active"));
+    dots.forEach(d=>d.classList.remove("active"));
     slides[i].classList.add("active");
-    if (dots[i]) dots[i].classList.add("active");
+    if(dots[i]) dots[i].classList.add("active");
   }
-
-  function goTo(i) {
-    index = (i + slides.length) % slides.length;
-    show(index);
-    restart();
-  }
-
-  function next() { goTo(index + 1); }
-
-  function restart() {
-    clearInterval(timer);
-    timer = setInterval(next, 3500);
-  }
-
-  prevBtn?.addEventListener("click", () => goTo(index - 1));
-  nextBtn?.addEventListener("click", next);
-  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
-
-  document.addEventListener("keydown", e => {
-    if (e.key === "ArrowLeft") goTo(index - 1);
-    if (e.key === "ArrowRight") goTo(index + 1);
-  });
-
-  show(index);
-  restart();
+  function goTo(i) { idx=(i+slides.length)%slides.length; show(idx); restart(); }
+  function restart() { clearInterval(timer); timer=setInterval(()=>goTo(idx+1),3800); }
+  prev?.addEventListener("click",()=>goTo(idx-1));
+  next?.addEventListener("click",()=>goTo(idx+1));
+  dots.forEach((d,i)=>d.addEventListener("click",()=>goTo(i)));
+  document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")goTo(idx-1);if(e.key==="ArrowRight")goTo(idx+1);});
+  show(idx); restart();
 })();
 </script>
 
