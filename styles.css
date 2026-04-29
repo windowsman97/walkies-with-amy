@@ -566,7 +566,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ── HOW IT WORKS 3-COL GRID ─────────────────── */
 .how-it-works-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr;
   gap: 2rem;
   align-items: start;
 }
