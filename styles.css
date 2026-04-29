@@ -563,3 +563,85 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .pill.green { background: var(--green-lt); color: var(--green); }
 .pill.amber { background: var(--amber-lt); color: var(--amber); }
+
+/* ── HOW IT WORKS 3-COL GRID ─────────────────── */
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .how-it-works-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .how-it-works-grid .slideshow {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 600px) {
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+  }
+  .how-it-works-grid .slideshow {
+    grid-column: auto;
+  }
+}
+
+/* ── PROCESS FLOW DIAGRAM ────────────────────── */
+.process-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.pf-node {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: .7rem .9rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .15s, border-color .15s;
+}
+.pf-node:hover {
+  border-color: var(--green);
+  box-shadow: var(--shadow);
+}
+.pf-node.pf-start {
+  border-color: var(--green);
+  background: var(--green-lt);
+}
+.pf-node.pf-end {
+  border-color: var(--amber);
+  background: var(--amber-lt);
+}
+.pf-icon {
+  font-size: 1.3rem;
+  width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.pf-body {
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+.pf-body strong {
+  font-size: .9rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.pf-body span {
+  font-size: .78rem;
+  color: var(--muted);
+}
+.pf-arrow {
+  text-align: center;
+  color: var(--green);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: .2rem 0;
+  font-weight: 900;
+}
