@@ -79,7 +79,7 @@
           <span class="kv-val">Leeds, UK</span>
         </div>
         <div class="hr"></div>
-        <a class="btn primary" href="contact.html" style="width:100%;">Send an enquiry</a>
+        <a class="btn primary" href="contact.html" class="btn-block">Send an enquiry</a>
         <p class="small note mt-1">Typically replies within 24 hours.</p>
       </div>
     </div>
@@ -155,7 +155,7 @@
         </div>
         <div class="hr"></div>
         <p class="pill amber">Pricing available on request</p>
-        <div style="margin-top:1.1rem;">
+        <div class="mt-ml">
           <a class="btn primary" href="contact.html">Enquire now</a>
         </div>
       </div>
@@ -298,41 +298,6 @@
   </div>
 </footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-  (function(){
-    const t = document.querySelector(".nav-toggle");
-    const n = document.querySelector(".nav");
-    t?.addEventListener("click",()=>{
-      const o=n.classList.toggle("open");
-      t.classList.toggle("open",o);
-      t.setAttribute("aria-expanded",o);
-      t.setAttribute("aria-label",o?"Close menu":"Open menu");
-    });
-  })();
-
-/* SLIDESHOW */
-(function(){
-  const slides = document.querySelectorAll(".slide");
-  const dots = document.querySelectorAll("#slideshowDots .dot");
-  const prev = document.getElementById("prevBtn");
-  const next = document.getElementById("nextBtn");
-  let idx = 0, timer;
-  function show(i) {
-    slides.forEach(s=>s.classList.remove("active"));
-    dots.forEach(d=>d.classList.remove("active"));
-    slides[i].classList.add("active");
-    if(dots[i]) dots[i].classList.add("active");
-  }
-  function goTo(i) { idx=(i+slides.length)%slides.length; show(idx); restart(); }
-  function restart() { clearInterval(timer); timer=setInterval(()=>goTo(idx+1),3800); }
-  prev?.addEventListener("click",()=>goTo(idx-1));
-  next?.addEventListener("click",()=>goTo(idx+1));
-  dots.forEach((d,i)=>d.addEventListener("click",()=>goTo(i)));
-  document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")goTo(idx-1);if(e.key==="ArrowRight")goTo(idx+1);});
-  show(idx); restart();
-})();
-</script>
-
+  <script src="scripts.js"></script>
 </body>
 </html>
