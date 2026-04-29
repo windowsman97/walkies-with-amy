@@ -351,10 +351,8 @@ img { max-width: 100%; height: auto; display: block; }
 .slides {
   position: relative;
   width: 100%;
-  height: 440px;
+  aspect-ratio: 3 / 4;
 }
-@media (max-width: 1024px) { .slides { height: 380px; } }
-@media (max-width: 520px)  { .slides { height: 280px; } }
 .slide {
   position: absolute;
   inset: 0;
@@ -362,7 +360,7 @@ img { max-width: 100%; height: auto; display: block; }
   transition: opacity 450ms ease;
 }
 .slide.active { opacity: 1; }
-.slide img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.slide img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 .slide-caption {
   position: absolute;
   left: 0; right: 0; bottom: 0;
