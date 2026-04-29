@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://walkieswithamy.co.uk/images/gallery-1.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"LocalBusiness","name":"Walkies With Amy","description":"Friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK.","url":"https://walkieswithamy.co.uk","telephone":"+447764788233","email":"amyfirth97@gmail.com","image":"https://walkieswithamy.co.uk/images/gallery-1.jpg","address":{"@type":"PostalAddress","addressLocality":"Leeds","addressRegion":"West Yorkshire","addressCountry":"GB"},"areaServed":{"@type":"City","name":"Leeds"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"4"}}
+  {"@context":"https://schema.org","@type":"LocalBusiness","name":"Walkies With Amy","description":"Friendly, reliable dog walking, pet visits and dog sitting in Leeds, UK.","url":"https://walkieswithamy.co.uk","telephone":"+447764788233","email":"amyfirth97@gmail.com","image":"https://walkieswithamy.co.uk/images/gallery-1.jpg","address":{"@type":"PostalAddress","addressLocality":"Leeds","addressRegion":"West Yorkshire","addressCountry":"GB"},"areaServed":{"@type":"City","name":"Leeds"}}
   </script>
 </head>
 <body>
@@ -34,7 +34,7 @@
       <a class="active" href="/">Home</a>
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
-      <a href="index.html#reviews">Reviews</a>
+
       <a href="https://www.instagram.com/firthamylouise/" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a class="btn primary" href="contact.html">Contact</a>
     </nav>
@@ -159,71 +159,6 @@
     </div>
   </section>
 
-  <!-- REVIEWS -->
-  <section class="section" id="reviews">
-    <div class="container">
-      <div class="section-header text-center">
-        <h2>What dog owners say</h2>
-        <p>Trusted by families across Leeds.</p>
-      </div>
-      <div class="reviews-grid">
-
-        <div class="review-card">
-          <span class="review-source">Google</span>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Amy is absolutely brilliant with our two Labradors. Always on time, sends lovely photos after every walk and our dogs absolutely adore her. Couldn't recommend her more highly!"</p>
-          <div class="review-author">
-            <div class="review-avatar">🐕</div>
-            <div>
-              <div class="review-name">Sarah T.</div>
-              <div class="review-location">Leeds, LS16</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-source">Google</span>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"We've used Amy for over a year for puppy visits and dog walking. She's reliable, caring and our dog is always so happy to see her. Brilliant service."</p>
-          <div class="review-author">
-            <div class="review-avatar">🐾</div>
-            <div>
-              <div class="review-name">James &amp; Claire</div>
-              <div class="review-location">Leeds, LS8</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-source">Facebook</span>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Fantastic service from Amy. She really takes the time to get to know your dog and does a proper meet &amp; greet before starting. Our dog comes back happy and tired — perfect!"</p>
-          <div class="review-author">
-            <div class="review-avatar">🦮</div>
-            <div>
-              <div class="review-name">Laura M.</div>
-              <div class="review-location">Leeds, LS6</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <span class="review-source">Facebook</span>
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text">"Super trustworthy and professional. Amy sends great photo updates and our dog is always so well looked after. It gives us complete peace of mind when we're at work."</p>
-          <div class="review-author">
-            <div class="review-avatar">🐩</div>
-            <div>
-              <div class="review-name">Tom H.</div>
-              <div class="review-location">Leeds, LS7</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICES PREVIEW -->
   <section class="section section-alt">
     <div class="container">
@@ -295,19 +230,17 @@
 </footer>
 
 <script>
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    (function(){
-      const t = document.querySelector(".nav-toggle");
-      const n = document.querySelector(".nav");
-      t?.addEventListener("click",()=>{
-        const o=n.classList.toggle("open");
-        t.classList.toggle("open",o);
-        t.setAttribute("aria-expanded",o);
-        t.setAttribute("aria-label",o?"Close menu":"Open menu");
-      });
-    })();
-  </script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  (function(){
+    const t = document.querySelector(".nav-toggle");
+    const n = document.querySelector(".nav");
+    t?.addEventListener("click",()=>{
+      const o=n.classList.toggle("open");
+      t.classList.toggle("open",o);
+      t.setAttribute("aria-expanded",o);
+      t.setAttribute("aria-label",o?"Close menu":"Open menu");
+    });
+  })();
 
 /* SLIDESHOW */
 (function(){
